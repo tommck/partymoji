@@ -1,6 +1,6 @@
 import { Stack, Typography } from '@material-ui/core';
 import React from 'react';
-import { SketchPicker } from 'react-color';
+import { HexColorPicker } from 'react-colorful';
 import { Expandable } from '~/components/Expandable';
 import { HelpTooltip } from '~/components/HelpTooltip';
 import type { Color, ParamFnDefault, ParamFunction } from '~/domain/types';
@@ -33,12 +33,10 @@ const ColorPickerParam: React.FC<{
         </Stack>
       }
     >
-      <SketchPicker
-        disableAlpha={true}
-        presetColors={[]}
+      <HexColorPicker
         color={colorUtil.toHexColor(value)}
-        onChangeComplete={(c) => {
-          onChange(colorUtil.fromHexColor(c.hex));
+        onChange={(c) => {
+          onChange(colorUtil.fromHexColor(c));
         }}
       />
     </Expandable>

@@ -1,11 +1,10 @@
 import { Stack, Typography } from '@material-ui/core';
 import * as convert from 'color-convert';
 import React from 'react';
-import { HuePicker } from 'react-color';
 import { HelpTooltip } from '~/components/HelpTooltip';
 import type { ParamFnDefault, ParamFunction } from '~/domain/types';
-import { colorUtil } from '~/domain/utils';
 import { toParamFunction } from './utils';
+import { HslColorPicker } from 'react-colorful';
 
 const HuePickerParam: React.FC<{
   name: string;
@@ -13,24 +12,20 @@ const HuePickerParam: React.FC<{
   description?: string;
   onChange: (v: number) => void;
 }> = ({ name, value, description, onChange }) => {
-  const hexColor = React.useMemo(
-    () =>
-      value === undefined
-        ? undefined
-        : colorUtil.toHexColor([...convert.hsl.rgb([value, 100, 50]), 255]),
-    [value]
-  );
+  const hslColor = React.useMemo(() => {
+    if (value === undefined) {
+      return undefined;
+    }
+    const [h, s, l] = convert.hsl.rgb([value, 100, 50]);
+    return { h, s, l };
+  }, [value]);
   return (
     <Stack spacing={1}>
       <Stack direction="row" spacing={1}>
         <Typography variant="body2">{name}</Typography>
         <HelpTooltip description={description} />
       </Stack>
-      <HuePicker
-        color={hexColor}
-        // HSL is in [0-360, 0-100, 0-100]
-        onChangeComplete={({ hsl }) => onChange(hsl.h)}
-      />
+      <HslColorPicker color={hslColor} onChange={(col) => onChange(col.h)} />
     </Stack>
   );
 };

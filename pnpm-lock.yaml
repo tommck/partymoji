@@ -176,6 +176,9 @@ importers:
       react-color:
         specifier: ^2.19.3
         version: 2.19.3(react@17.0.2)
+      react-colorful:
+        specifier: ^5.6.1
+        version: 5.6.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2)
       react-dev-utils:
         specifier: ^11.0.4
         version: 11.0.4(eslint@7.32.0)(typescript@4.9.5)(webpack@4.44.2)
@@ -5202,6 +5205,12 @@ packages:
     resolution: {integrity: sha512-LEeGE/ZzNLIsFWa1TMe8y5VYqr7bibneWmvJwm1pCn/eNmrabWDh659JSPn9BuaMpEfU83WTOJfnCcjDZwNQTA==}
     peerDependencies:
       react: '*'
+
+  react-colorful@5.6.1:
+    resolution: {integrity: sha512-1exovf0uGTGyq5mXQT0zgQ80uvj2PCwvF8zY1RN9/vbJVSjSo3fsB/4L3ObbF7u70NduSiK4xu4Y6q1MHoUGEw==}
+    peerDependencies:
+      react: '>=16.8.0'
+      react-dom: '>=16.8.0'
 
   react-dev-utils@11.0.4:
     resolution: {integrity: sha512-dx0LvIGHcOPtKbeiSUM4jqpBl3TcY7CDjZdfOIcKeznE7BWr9dg0iPG90G5yfVQ+p/rGNMXdbfStvzQZEVEi4A==}
@@ -12387,6 +12396,11 @@ snapshots:
       react: 17.0.2
       reactcss: 1.2.3(react@17.0.2)
       tinycolor2: 1.6.0
+
+  react-colorful@5.6.1(react-dom@17.0.2(react@17.0.2))(react@17.0.2):
+    dependencies:
+      react: 17.0.2
+      react-dom: 17.0.2(react@17.0.2)
 
   react-dev-utils@11.0.4(eslint@7.32.0)(typescript@4.9.5)(webpack@4.44.2):
     dependencies:
